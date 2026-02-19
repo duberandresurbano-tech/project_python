@@ -171,19 +171,28 @@ tk.Label(frame_principal, text="Ingrese el monto (mínimo $5.000):",
 entry_monto = tk.Entry(frame_principal)
 entry_monto.pack()
 
-frame_botones = tk.Frame(frame_principal, bg="#000000")
+frame_botones = tk.Frame(frame_principal, bg="#020202")
 frame_botones.pack(pady=10)
 
 tk.Button(frame_botones, text="Agregar Gasto",
-          bg="red", fg="white",
+          bg="red", fg="white", font=("Arial", 10, "bold"),
           command=lambda: agregar_movimiento("Gasto")).grid(row=0, column=0, padx=10)
 
 tk.Button(frame_botones, text="Agregar Dinero",
-          bg="green", fg="white",
+          bg="green", fg="white", font=("Arial", 10, "bold"),
           command=lambda: agregar_movimiento("Ganancia")).grid(row=0, column=1, padx=10)
 
-tk.Button(frame_principal, text="Ver Movimientos",
+# ========================================================
+# MODIFICACIÓN AQUÍ: BOTÓN "VER MOVIMIENTOS" CON COLOR
+# ========================================================
+tk.Button(frame_principal, 
+          text="Ver Movimientos",
+          bg="#004d98",             # Azul Barça
+          fg="#edbb00",             # Amarillo Barça
+          font=("Arial", 11, "bold"), # Fuente más llamativa
+          width=20,                 # Un poco más ancho
           command=mostrar_movimientos).pack(pady=10)
+# ========================================================
 
 columnas = ("Tipo", "Monto", "Fecha", "Hora")
 lista = ttk.Treeview(frame_principal, columns=columnas, show="headings", height=8)
